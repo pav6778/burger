@@ -2,16 +2,32 @@
     <img width="300px"src="/assets/img/burger.png" alt="">
     <h4 style="color: rgb(198, 92, 0);">Eat-Da-Burger!</h4>
     <div class="row">
-        <div class="col-4">
+        <div class="col-4" >
             {{#each burgers}}
-            <p>name {{burger_name}}</p>
-            <button class="devoured" data-id="{{this.id}}">Devour!</button>
+            {{#unless devoured}}
+            <ul >
+                <li class=" px-1"style="display: inline; background-color: white;">{{id}}. {{burger_name}}</li> 
+            </ul>
+            {{/unless}}
             {{/each}}
-
         </div>
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-4 text-left">
+             {{#each burgers}}
+            {{#unless devoured}}
 
+        <button  class="devour btn btn-danger btn-sm p-0" data-id="{{this.id}}" data-devour="{{devoured}}">Devour!</button>
+
+            {{/unless}}
+            {{/each}}
+        </div>
+        <div class="col-4">
+             {{#each burgers}}
+            {{#if devoured}}
+            <ul style="list-style-type: none; color: rgb(172, 172, 172); background-color: rgb(235, 235, 235);">
+                <li>{{id}}. {{burger_name}}</li>
+            </ul>
+            {{/if}}
+            {{/each}}
         </div>
 
 
@@ -19,7 +35,7 @@
     <form class="addBurger">
         <textarea name="burger_menu" id="burger_menu" cols="30" rows="2" placeholder='Enter a burger you want to eat Click the "submit" button.'></textarea>
         <br>
-        <button class="btn btn-sm btn-primary">submit</button>
+        <button class="btn btn-lg py-0 btn-primary">submit</button>
     </form>
 </div>
 
