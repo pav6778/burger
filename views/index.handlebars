@@ -5,8 +5,8 @@
         <div class="col-4" >
             {{#each burgers}}
             {{#unless devoured}}
-            <ul >
-                <li class=" px-1"style="display: inline; background-color: white;">{{id}}. {{burger_name}}</li> 
+            <ul class="text-left"style="list-style-type: none;">
+                <li  style=" background-color: white;">{{id}}. {{burger_name}}</li> 
             </ul>
             {{/unless}}
             {{/each}}
@@ -14,17 +14,18 @@
         <div class="col-4 text-left">
              {{#each burgers}}
             {{#unless devoured}}
+            <ul style="list-style-type: none;">
+        <li><button  class="devour btn btn-danger btn-sm" data-id="{{this.id}}" data-devour="{{devoured}}">Devour!</button></li>
 
-        <button  class="devour btn btn-danger btn-sm p-0" data-id="{{this.id}}" data-devour="{{devoured}}">Devour!</button>
-
+</ul>
             {{/unless}}
             {{/each}}
         </div>
         <div class="col-4">
              {{#each burgers}}
             {{#if devoured}}
-            <ul style="list-style-type: none; color: rgb(172, 172, 172); background-color: rgb(235, 235, 235);">
-                <li>{{id}}. {{burger_name}}</li>
+            <ul class="text-left" style="list-style-type: none;">
+                <li style="color: rgb(172, 172, 172); background-color: rgb(235, 235, 235);">{{id}}. {{burger_name}}</li>
             </ul>
             {{/if}}
             {{/each}}
