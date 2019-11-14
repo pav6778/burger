@@ -6,7 +6,8 @@
             {{#each burgers}}
             {{#unless devoured}}
             <ul class="text-left"style="list-style-type: none;">
-                <li  style=" background-color: white;">{{id}}. {{burger_name}}</li> 
+                <li style=" background-color: white;">{{id}}. {{burger_name}} <button class="devour btn btn-danger p-0 btn-sm" data-id="{{this.id}}" data-devour="{{devoured}}">Devour!</button></li> 
+           
             </ul>
             {{/unless}}
             {{/each}}
@@ -15,7 +16,6 @@
              {{#each burgers}}
             {{#unless devoured}}
             <ul style="list-style-type: none;">
-        <li><button  class="devour btn btn-danger btn-sm" data-id="{{this.id}}" data-devour="{{devoured}}">Devour!</button></li>
 
 </ul>
             {{/unless}}
